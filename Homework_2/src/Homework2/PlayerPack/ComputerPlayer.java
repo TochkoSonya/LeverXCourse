@@ -1,7 +1,14 @@
 package Homework2.PlayerPack;
 
+import java.util.Random;
+import Homework2.Symbol;
+
 public class ComputerPlayer extends CommonPlayer {
 
+    private Random random;
+    public ComputerPlayer(){
+        random=new Random();
+    }
     public void move(Symbol symbol) {
         int x;
         int y;

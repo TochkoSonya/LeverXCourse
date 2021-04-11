@@ -7,13 +7,15 @@ import java.util.Scanner;
 
 public class Game implements IBase{
 
+    private Scanner scanner;
     private ComputerPlayer computerPlayer;
     private HumanPlayer humanPlayer;
     private HumanPlayer humanPlayer2;
+
     private Mode mode;
 
-
     Game() {
+        scanner=new Scanner(System.in);
         computerPlayer= new ComputerPlayer();
         humanPlayer= new HumanPlayer();
         humanPlayer2= new HumanPlayer();
@@ -21,9 +23,7 @@ public class Game implements IBase{
 
     public static void main(String[] args) {
         Game newGame=new Game();
-
         newGame.game();
-        //new Game().game();
     }
 
     private void game() {
@@ -83,10 +83,8 @@ public class Game implements IBase{
     }
 
     public Mode chooseOpponent(){
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Choose an opponent - computer(0) or human(1)");
         int x = scanner.nextInt();
-
          return x==0 ? Mode.ComputerHuman : Mode.HumanHuman;
     }
 

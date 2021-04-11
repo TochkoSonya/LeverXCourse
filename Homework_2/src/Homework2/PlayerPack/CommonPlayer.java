@@ -1,19 +1,9 @@
 package Homework2.PlayerPack;
 
 import Homework2.IBase;
+import Homework2.Symbol;
 
-import java.util.Random;
-import java.util.Scanner;
-
-public abstract class CommonPlayer implements IBase {
-
-    protected Random random;
-    protected Scanner scanner;
-
-    protected CommonPlayer() {
-        random=new Random();
-        scanner = new Scanner(System.in);
-    }
+public abstract class CommonPlayer implements IBase{
 
     protected boolean isCellValid(int x, int y) {
         if (x < 0 || y < 0 || x >= 3 || y >= 3)
