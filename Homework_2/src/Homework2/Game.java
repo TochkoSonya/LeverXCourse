@@ -1,5 +1,4 @@
 package Homework2;
-
 import Homework2.PlayerPack.ComputerPlayer;
 import Homework2.PlayerPack.HumanPlayer;
 import Homework2.UtilPack.Mode;
@@ -12,26 +11,24 @@ public class Game implements IBase{
     private ComputerPlayer computerPlayer;
     private HumanPlayer humanPlayer;
     private HumanPlayer humanPlayer2;
-
     private Mode mode;
 
-    Game() {
+    public Game() {
         util=new Util();
-        computerPlayer= new ComputerPlayer();
-        humanPlayer= new HumanPlayer();
-        humanPlayer2= new HumanPlayer();
+        computerPlayer = new ComputerPlayer();
+        humanPlayer = new HumanPlayer();
+        humanPlayer2 = new HumanPlayer();
     }
 
     public static void main(String[] args) {
-        Game newGame=new Game();
+        Game newGame = new Game();
         newGame.game();
     }
 
     private void game() {
         util.initTable();
         mode=util.chooseOpponent();
-        if(mode==Mode.ComputerHuman)
-        {
+        if (mode==Mode.ComputerHuman) {
             while (true) {
                 humanPlayer.move(Symbol.SIGN_X);
                 if (util.checkWin(Symbol.SIGN_X)) {
@@ -56,7 +53,7 @@ public class Game implements IBase{
             System.out.println("GAME OVER.");
             util.printTable();
         }
-        else if(mode==Mode.HumanHuman){
+        else if (mode==Mode.HumanHuman) {
             while (true) {
                 humanPlayer.move(Symbol.SIGN_X);
                 if (util.checkWin(Symbol.SIGN_X)) {
@@ -82,7 +79,6 @@ public class Game implements IBase{
             util.printTable();
         }
     }
-
 }
 
 

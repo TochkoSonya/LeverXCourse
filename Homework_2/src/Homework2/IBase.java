@@ -1,5 +1,4 @@
 package Homework2;
-
 import java.util.Scanner;
 
 public interface IBase {
