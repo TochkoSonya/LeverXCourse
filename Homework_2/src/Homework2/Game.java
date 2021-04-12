@@ -5,7 +5,7 @@ import Homework2.UtilPack.Mode;
 import Homework2.UtilPack.Symbol;
 import Homework2.UtilPack.Util;
 
-public class Game implements IBase{
+public class Game implements Base {
 
     private Util util;
     private ComputerPlayer computerPlayer;

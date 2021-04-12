@@ -1,12 +1,12 @@
 package Homework2.UtilPack;
-import Homework2.IBase;
+import Homework2.Base;
 
-public class Util implements IBase {
+public class Util implements Base {
 
     public Mode chooseOpponent() {
         System.out.println("Choose an opponent - computer(0) or human(!0)");
         int x = scanner.nextInt();
-        return x == 0 ? Mode.ComputerHuman : Mode.HumanHuman;
+        return (x == 0) ? Mode.ComputerHuman : Mode.HumanHuman;
     }
 
     public void initTable() {

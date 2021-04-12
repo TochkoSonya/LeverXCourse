@@ -1,8 +1,8 @@
 package Homework2.PlayerPack;
-import Homework2.IBase;
+import Homework2.Base;
 import Homework2.UtilPack.Symbol;
 
-public abstract class CommonPlayer implements IBase{
+public abstract class CommonPlayer implements Base {
 
     protected boolean isCellValid(int x, int y) {   // checking the correctness of the coordinates entered by the user
         if (x < 0 || y < 0 || x >= 3 || y >= 3) {
