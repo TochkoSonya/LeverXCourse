@@ -1,4 +1,4 @@
-package Homework2;
+package Homework2.UtilPack;
 
 public enum Mode {
     ComputerHuman,

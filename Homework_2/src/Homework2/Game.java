@@ -2,6 +2,8 @@ package Homework2;
 
 import Homework2.PlayerPack.ComputerPlayer;
 import Homework2.PlayerPack.HumanPlayer;
+import Homework2.UtilPack.Mode;
+import Homework2.UtilPack.Symbol;
 
 import java.util.Scanner;
 

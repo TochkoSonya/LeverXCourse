@@ -1,14 +1,10 @@
 package Homework2.PlayerPack;
 
 import java.util.Scanner;
-import Homework2.Symbol;
+import Homework2.UtilPack.Symbol;
 
 public class HumanPlayer extends CommonPlayer {
 
-    private Scanner scanner;
-    public HumanPlayer(){
-        scanner = new Scanner(System.in);
-    }
     public void move(Symbol symbol) {
         int x;
         int y;

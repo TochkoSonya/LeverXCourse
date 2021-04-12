@@ -1,4 +1,4 @@
-package Homework2;
+package Homework2.UtilPack;
 
 public enum Symbol {
     SIGN_X('x'), SIGN_O('o'), SIGN_EMPTY('.');

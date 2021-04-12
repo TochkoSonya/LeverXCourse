@@ -1,7 +1,7 @@
 package Homework2.PlayerPack;
 
 import Homework2.IBase;
-import Homework2.Symbol;
+import Homework2.UtilPack.Symbol;
 
 public abstract class CommonPlayer implements IBase{
 

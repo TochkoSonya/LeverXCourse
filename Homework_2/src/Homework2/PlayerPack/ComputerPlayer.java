@@ -1,7 +1,7 @@
 package Homework2.PlayerPack;
 
 import java.util.Random;
-import Homework2.Symbol;
+import Homework2.UtilPack.Symbol;
 
 public class ComputerPlayer extends CommonPlayer {
 
