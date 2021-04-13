@@ -1,7 +1,7 @@
 package Homework2.UtilPack;
 import Homework2.Base;
 
-public class Util implements Base {
+public class Util implements Base {     //static
 
     public Mode chooseOpponent() {
         System.out.println("Choose an opponent - computer(0) or human(!0)");
