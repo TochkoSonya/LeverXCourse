@@ -7,14 +7,12 @@ import Homework2.UtilPack.Util;
 
 public class Game implements Base {
 
-    private Util util;
     private ComputerPlayer computerPlayer;
     private HumanPlayer humanPlayer;
     private HumanPlayer humanPlayer2;
     private Mode mode;
 
     public Game() {
-        util=new Util();
         computerPlayer = new ComputerPlayer();
         humanPlayer = new HumanPlayer();
         humanPlayer2 = new HumanPlayer();
@@ -26,57 +24,57 @@ public class Game implements Base {
     }
 
     private void game() {
-        util.initTable();
-        mode=util.chooseOpponent();
+        Util.initTable();
+        mode=Util.chooseOpponent();
         if (mode==Mode.ComputerHuman) {
             while (true) {
                 humanPlayer.move(Symbol.SIGN_X);
-                if (util.checkWin(Symbol.SIGN_X)) {
+                if (Util.checkWin(Symbol.SIGN_X)) {
                     System.out.println("YOU WIN!");
                     break;
                 }
-                if (util.isTableFull()) {
+                if (Util.isTableFull()) {
                     System.out.println("Sorry, DRAW!");
                     break;
                 }
                 computerPlayer.move(Symbol.SIGN_O);
-                util.printTable();
-                if (util.checkWin(Symbol.SIGN_O)) {
+                Util.printTable();
+                if (Util.checkWin(Symbol.SIGN_O)) {
                     System.out.println("AI WIN!");
                     break;
                 }
-                if (util.isTableFull()) {
+                if (Util.isTableFull()) {
                     System.out.println("Sorry, DRAW!");
                     break;
                 }
             }
             System.out.println("GAME OVER.");
-            util.printTable();
+            Util.printTable();
         }
         else if (mode==Mode.HumanHuman) {
             while (true) {
                 humanPlayer.move(Symbol.SIGN_X);
-                if (util.checkWin(Symbol.SIGN_X)) {
+                if (Util.checkWin(Symbol.SIGN_X)) {
                     System.out.println("Player1 WIN!");
                     break;
                 }
-                if (util.isTableFull()) {
+                if (Util.isTableFull()) {
                     System.out.println("Sorry, DRAW!");
                     break;
                 }
                 humanPlayer2.move(Symbol.SIGN_O);
-                util.printTable();
-                if (util.checkWin(Symbol.SIGN_O)) {
+                Util.printTable();
+                if (Util.checkWin(Symbol.SIGN_O)) {
                     System.out.println("Player2 WIN!");
                     break;
                 }
-                if (util.isTableFull()) {
+                if (Util.isTableFull()) {
                     System.out.println("Sorry, DRAW!");
                     break;
                 }
             }
             System.out.println("GAME OVER.");
-            util.printTable();
+            Util.printTable();
         }
     }
 }

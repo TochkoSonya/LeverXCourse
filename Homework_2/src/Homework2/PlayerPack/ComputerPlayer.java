@@ -6,11 +6,10 @@ import Homework2.UtilPack.Util;
 public class ComputerPlayer extends CommonPlayer {
 
     private Random random;
-    private Util util;
     private boolean firstMove;
+    
     public ComputerPlayer(){
         random = new Random();
-        util = new Util();
         firstMove=true;
     }
 
@@ -25,10 +24,10 @@ public class ComputerPlayer extends CommonPlayer {
                     if (isCellValid(row, col)) {
                         table[row][col] = Symbol.SIGN_X.getValue();
 
-                        if (util.checkWin(Symbol.SIGN_X)) {         // check if there is a winning move for the player - put o there
+                        if (Util.checkWin(Symbol.SIGN_X)) {         // check if there is a winning move for the player - put o there
                             table[row][col] = symbol.getValue();
                             return;
-                        } else if (!util.checkWin(Symbol.SIGN_X)) {     // if the move is not winning - return empty
+                        } else if (!Util.checkWin(Symbol.SIGN_X)) {     // if the move is not winning - return empty
                             table[row][col] = Symbol.SIGN_EMPTY.getValue();
                         }
                     }

@@ -3,13 +3,13 @@ import Homework2.Base;
 
 public class Util implements Base {     //static
 
-    public Mode chooseOpponent() {
+    public static Mode chooseOpponent() {
         System.out.println("Choose an opponent - computer(0) or human(!0)");
         int x = scanner.nextInt();
         return (x == 0) ? Mode.ComputerHuman : Mode.HumanHuman;
     }
 
-    public void initTable() {
+    public static void initTable() {
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
                 table[row][col] = Symbol.SIGN_EMPTY.getValue();
@@ -17,7 +17,7 @@ public class Util implements Base {     //static
         }
     }
 
-    public void printTable() {
+    public static void printTable() {
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
                 System.out.print(table[row][col] + " ");
@@ -26,7 +26,7 @@ public class Util implements Base {     //static
         }
     }
 
-    public boolean checkWin(Symbol symbol) {
+    public static boolean checkWin(Symbol symbol) {
         for (int i = 0; i < 3; i++) {
             if ((table[i][0] == symbol.getValue() && table[i][1] == symbol.getValue() &&     //check by rows and columns
                     table[i][2] == symbol.getValue()) ||
@@ -44,7 +44,7 @@ public class Util implements Base {     //static
         return false;
     }
 
-    public boolean isTableFull() {
+    public static boolean isTableFull() {
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
                 if (table[row][col] == Symbol.SIGN_EMPTY.getValue()) {
