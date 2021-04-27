@@ -7,7 +7,7 @@ public class ComputerPlayer extends CommonPlayer {
 
     private Random random;
     private boolean firstMove;
-    
+
     public ComputerPlayer(){
         random = new Random();
         firstMove=true;
