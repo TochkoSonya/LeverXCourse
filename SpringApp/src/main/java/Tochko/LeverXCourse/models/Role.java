@@ -1,9 +1,9 @@
 package Tochko.LeverXCourse.models;
 
 public enum Role {
-	admin("admin"),
-	anon ("anon"),
-	trader("trader");
+	ADMIN("admin"),
+	ANON ("anon"),
+	TRADER("trader");
 
 	private String code;
 	Role(String code){

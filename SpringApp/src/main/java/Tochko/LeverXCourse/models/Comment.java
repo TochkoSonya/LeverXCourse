@@ -15,13 +15,15 @@ public class Comment {
 	private Date createdDate;
 	private String status;
 
-	@ManyToOne(fetch=FetchType.EAGER, cascade={CascadeType.MERGE, CascadeType.PERSIST})
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="traderId")
 	private Trader trader;
 
 	public Trader getTrader() {
 		return trader;
 	}
+
+	public void setTrader(Trader trader) {this.trader=trader; }
 
 	public Comment() { }
 
@@ -47,10 +49,6 @@ public class Comment {
 	
 	public String getStatus() {
 		return status;
-	}
-	
-	public void setCommentId(int commentId) {
-		this.commentId=commentId;
 	}
 	
 	public void setMessage(String message) {

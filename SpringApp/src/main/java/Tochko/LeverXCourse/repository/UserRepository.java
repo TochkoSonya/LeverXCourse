@@ -6,5 +6,8 @@ import org.springframework.stereotype.Repository;
 import java.io.Serializable;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Serializable>{
+public interface UserRepository extends JpaRepository<User, Integer>{
+
+    User findByEmailAndPassword(String email, String password);
+
 }

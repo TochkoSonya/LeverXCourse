@@ -11,16 +11,17 @@ public class Trader {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int traderId;
 
-	//private int userId;
 	private String title;
 	private String description;
 
 
-	@ManyToOne(fetch=FetchType.EAGER, cascade={CascadeType.MERGE, CascadeType.PERSIST})
-	@JoinColumn(name="userId")
+	@ManyToOne(optional = false,
+			fetch = FetchType.EAGER)
+	@JoinColumn(name="userId", nullable = false)
 	private User user;
 
-	@OneToMany(mappedBy = "trader",fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+
+	@OneToMany(mappedBy = "trader",fetch=FetchType.EAGER,cascade=CascadeType.REMOVE)
 	private Set<Comment> comments;
 
 	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
@@ -28,6 +29,15 @@ public class Trader {
 				joinColumns=@JoinColumn(name="traderId"),
 				inverseJoinColumns = @JoinColumn(name="gameId"))
 	private Set<Game> traderGames;
+
+
+	public Trader() { }
+
+	public Trader(String title, String description) {
+		this.title=title;
+		this.description=description;
+	}
+
 
 	public Set<Comment> getComments() {
 		return comments;
@@ -40,16 +50,14 @@ public class Trader {
 	public User getUser() {
 		return user;
 	}
+	public void setUser(User user) {
+	    this.user=user;
+    }
 
 
 	public int getTraderId() {
 		return traderId;
 	}
-	
-//	public int getUserId() {
-//		return userId;
-//	}
-	
 	public String getTitle() {
 		return title;
 	}
@@ -58,14 +66,10 @@ public class Trader {
 		return description;
 	}
 	
-	public void setTraderId(int traderId) {
-		this.traderId=traderId;
-	}
-	
-//	public void setUserId(int userId) {
-//		this.userId=userId;
+	//public void setTraderId(int traderId) {
+//		this.traderId=traderId;
 //	}
-	
+
 	public void setTitle(String title) {
 		this.title=title;
 	}

@@ -4,8 +4,6 @@ import java.util.Date;
 import java.util.Set;
 import javax.persistence.*;
 
-import static Tochko.LeverXCourse.models.Status.*;
-
 
 @Entity
 @Table(name = "CommonUser")
@@ -13,7 +11,7 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long userId;
+	private int userId;
 	
 	private String firstName;
 	private String lastName;
@@ -24,7 +22,8 @@ public class User {
 	private String status;
 
 
-	@OneToMany(mappedBy = "user",fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@OneToMany(	mappedBy = "user",
+			cascade = CascadeType.ALL)
 	private Set<Trader> traders;
 
 	public Set<Trader> getTraders() {
@@ -47,7 +46,7 @@ public class User {
 		this.status=status.getCode();
 	}
 
-	public Long getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 	
@@ -80,7 +79,7 @@ public class User {
 	}
 	
 	
-	public void setUserId(Long userId) {
+	public void setUserId(int userId) {
 		this.userId=userId;
 	}
 	
