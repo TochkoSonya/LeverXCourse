@@ -8,6 +8,6 @@ import java.io.Serializable;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
 
-    User findByEmailAndPassword(String email, String password);
+    User findByEmailAndPassword(String email, int password);
 
 }

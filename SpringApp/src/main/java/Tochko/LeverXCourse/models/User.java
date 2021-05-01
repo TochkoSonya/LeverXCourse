@@ -15,7 +15,7 @@ public class User {
 	
 	private String firstName;
 	private String lastName;
-	private String password;
+	private int password;
 	private String email;
 	private Date createdDate;
 	private String role;
@@ -35,7 +35,7 @@ public class User {
 	}
 	
 	public User(String firstName, String lastName, 
-			String password, String email, Date createdDate,
+			int password, String email, Date createdDate,
 				Role role, Status status) {
 		this.firstName=firstName;
 		this.lastName=lastName;
@@ -58,7 +58,7 @@ public class User {
 		return lastName;
 	}
 	
-	public String getPassword() {
+	public int getPassword() {
 		return password;
 	}
 	
@@ -91,7 +91,7 @@ public class User {
 		this.lastName=lastName;
 	}
 	
-	public void setPassword(String passwrod) {
+	public void setPassword(int passwrod) {
 		this.password=passwrod;
 	}
 	

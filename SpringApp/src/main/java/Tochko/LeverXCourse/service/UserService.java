@@ -26,7 +26,7 @@ public class UserService {
         return userRepository.findOne(id);
     }
 
-    public User findByEmailAndPassword(String email, String password) {
+    public User findByEmailAndPassword(String email, int password) {
         return userRepository.findByEmailAndPassword(email, password); }
 
 }

@@ -39,7 +39,7 @@ public class MainController {
 
     @RequestMapping(value="/authorization", method= RequestMethod.POST)
     public String userAuthorization(@RequestParam("email") String email, @RequestParam("password") String password, Model model) {
-        User user = userService.findByEmailAndPassword(email, password);
+        User user = userService.findByEmailAndPassword(email, password.hashCode());
 
         if(user ==null) {
             return "redirect:/";

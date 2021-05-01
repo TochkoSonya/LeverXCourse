@@ -43,9 +43,11 @@ public class UserController {
     }
 
     @RequestMapping(value = "/registration", method=RequestMethod.POST)
-    public String addUser(@RequestParam("title") String title, @RequestParam("description") String description, User user) {
+    public String addUser(@RequestParam("title") String title, @RequestParam("description") String description,
+                          @RequestParam("password") String password, User user) {
         user.setRole(Role.TRADER);
         user.setStatus(Status.PROCESSING);
+        user.setPassword(password.hashCode());
         userService.save(user);
         Trader newTrader=new Trader();
         newTrader.setTitle(title);
