@@ -28,10 +28,6 @@ public class CommentService {
 
     public List<Comment> findByTrader(Trader trader) { return commentRepository.findByTrader(trader); }
 
-    //public List<Comment> findCommentWithProcessingStatus(Status status) {
-    //    return commentRepository.findCommentWithProcessingStatus(status.getCode());
-    //}
-
     public List<Comment> findCommentsWithActiveStatusByTrader(Trader trader) {
         return commentRepository.findCommentsWithActiveStatusByTrader(trader);
     }

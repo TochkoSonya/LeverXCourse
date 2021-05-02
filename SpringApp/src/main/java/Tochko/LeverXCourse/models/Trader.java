@@ -65,10 +65,6 @@ public class Trader {
 	public String getDescription() {
 		return description;
 	}
-	
-	//public void setTraderId(int traderId) {
-//		this.traderId=traderId;
-//	}
 
 	public void setTitle(String title) {
 		this.title=title;

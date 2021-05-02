@@ -1,5 +1,4 @@
 package Tochko.LeverXCourse.service;
-
 import Tochko.LeverXCourse.models.User;
 import Tochko.LeverXCourse.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

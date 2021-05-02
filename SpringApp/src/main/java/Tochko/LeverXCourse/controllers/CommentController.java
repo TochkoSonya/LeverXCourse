@@ -1,5 +1,4 @@
 package Tochko.LeverXCourse.controllers;
-
 import Tochko.LeverXCourse.models.Comment;
 import Tochko.LeverXCourse.models.Status;
 import Tochko.LeverXCourse.service.CommentService;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import java.util.Date;
 
 

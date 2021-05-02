@@ -77,11 +77,7 @@ public class User {
 	public String getStatus() {
 		return status;
 	}
-	
-	
-	public void setUserId(int userId) {
-		this.userId=userId;
-	}
+
 	
 	public void setFirstName(String firstName) {
 		this.firstName=firstName;
@@ -102,8 +98,6 @@ public class User {
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate=createdDate;
 	}
-
-
 
 	public void setRole(Role role) {
 		this.role=role.getCode();

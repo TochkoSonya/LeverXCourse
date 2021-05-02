@@ -1,9 +1,7 @@
 package Tochko.LeverXCourse.config;
 import javax.servlet.Filter;
 import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
-import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-//import com.sivalabs.springapp.config.AppConfig;
 
 
 public class SpringWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer{
