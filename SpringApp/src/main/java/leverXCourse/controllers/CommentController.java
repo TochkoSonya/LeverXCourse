@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Date;
 
+//TODO change all mappings (comment controller)
 
 @Controller
 @RequestMapping("/")
