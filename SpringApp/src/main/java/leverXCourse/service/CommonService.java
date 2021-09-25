@@ -1,4 +1,4 @@
-package Tochko.LeverXCourse.service;
+package leverXCourse.service;
 
 import java.util.List;
 

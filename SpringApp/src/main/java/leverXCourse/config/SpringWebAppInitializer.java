@@ -1,4 +1,5 @@
-package Tochko.LeverXCourse.config;
+package leverXCourse.config;
+
 import javax.servlet.Filter;
 import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;

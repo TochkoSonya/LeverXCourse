@@ -1,6 +1,7 @@
-package Tochko.LeverXCourse.repository;
-import Tochko.LeverXCourse.models.Comment;
-import Tochko.LeverXCourse.models.Trader;
+package leverXCourse.repository;
+
+import leverXCourse.models.Comment;
+import leverXCourse.models.Trader;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

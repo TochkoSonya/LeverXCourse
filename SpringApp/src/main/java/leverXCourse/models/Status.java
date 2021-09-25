@@ -1,4 +1,4 @@
-package Tochko.LeverXCourse.models;
+package leverXCourse.models;
 
 public enum Status {
 	PROCESSING("processing"),

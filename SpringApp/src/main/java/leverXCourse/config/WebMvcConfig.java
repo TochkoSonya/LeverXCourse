@@ -1,4 +1,4 @@
-package Tochko.LeverXCourse.config;
+package leverXCourse.config;
 
 import java.util.Properties;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 
 @Configuration
-@ComponentScan(basePackages = {"Tochko.LeverXCourse.controllers"})
+@ComponentScan(basePackages = {"leverXCourse.controllers"})
 @EnableWebMvc
 public class WebMvcConfig extends WebMvcConfigurerAdapter
 {
@@ -38,7 +38,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter
     {
         configurer.enable();
     }
-
 
     @Bean
     public SimpleMappingExceptionResolver simpleMappingExceptionResolver()

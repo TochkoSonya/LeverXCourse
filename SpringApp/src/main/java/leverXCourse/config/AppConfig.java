@@ -1,4 +1,5 @@
-package Tochko.LeverXCourse.config;
+package leverXCourse.config;
+
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
@@ -11,14 +12,13 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Configuration
-@ComponentScan(basePackages={"Tochko.LeverXCourse"})
+@ComponentScan(basePackages={"leverXCourse"})
 @PropertySource(value = { "classpath:application.properties" })
 @EnableScheduling
 @EnableAspectJAutoProxy
 @EnableCaching
 public class AppConfig
 {
-
     @Bean
     public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer()
     {

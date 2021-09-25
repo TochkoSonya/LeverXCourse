@@ -1,5 +1,6 @@
-package Tochko.LeverXCourse.repository;
-import Tochko.LeverXCourse.models.User;
+package leverXCourse.repository;
+
+import leverXCourse.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

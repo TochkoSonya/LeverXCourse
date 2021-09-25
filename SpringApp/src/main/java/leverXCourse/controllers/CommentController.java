@@ -1,8 +1,9 @@
-package Tochko.LeverXCourse.controllers;
-import Tochko.LeverXCourse.models.Comment;
-import Tochko.LeverXCourse.models.Status;
-import Tochko.LeverXCourse.service.CommentService;
-import Tochko.LeverXCourse.service.TraderService;
+package leverXCourse.controllers;
+
+import leverXCourse.models.Comment;
+import leverXCourse.models.Status;
+import leverXCourse.service.CommentService;
+import leverXCourse.service.TraderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

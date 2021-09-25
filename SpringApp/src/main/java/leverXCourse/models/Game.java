@@ -1,4 +1,5 @@
-package Tochko.LeverXCourse.models;
+package leverXCourse.models;
+
 import javax.persistence.*;
 import java.lang.String;
 import java.util.Date;

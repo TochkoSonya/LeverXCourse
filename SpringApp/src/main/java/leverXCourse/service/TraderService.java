@@ -1,6 +1,7 @@
-package Tochko.LeverXCourse.service;
-import Tochko.LeverXCourse.models.Trader;
-import Tochko.LeverXCourse.repository.TraderRepository;
+package leverXCourse.service;
+
+import leverXCourse.models.Trader;
+import leverXCourse.repository.TraderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

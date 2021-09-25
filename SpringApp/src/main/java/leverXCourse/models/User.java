@@ -1,4 +1,5 @@
-package Tochko.LeverXCourse.models;
+package leverXCourse.models;
+
 import java.lang.String;
 import java.util.Date;
 import java.util.Set;
