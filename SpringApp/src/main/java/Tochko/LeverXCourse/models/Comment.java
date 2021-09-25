@@ -28,39 +28,27 @@ public class Comment {
 	public Comment() { }
 
 	public Comment(String message, Date createdDate, Status status) {
-	this.message=message;
-	this.createdDate=createdDate;
-	this.status=status.getCode();
-
+		this.message = message;
+		this.createdDate = createdDate;
+		this.status = status.getCode();
 	}
 
-	public int getCommentId() {
-		return commentId;
-	}
+	public int getCommentId() {	return commentId; }
 	
-	public String getMessage() {
-		return message;
-	}
+	public String getMessage() { return message; }
+	
+	public Date getCreatedDate() { return createdDate;	}
+	
+	public String getStatus() {	return status; }
+	
+	public void setMessage(String message) { this.message=message; }
+	
+	public void setCreatedDate(Date createdDate) { this.createdDate=createdDate; }
+	
+	public void setStatus(Status status) { this.status=status.getCode(); }
 
-	
-	public Date getCreatedDate() {
-		return createdDate;
-	}
-	
-	public String getStatus() {
-		return status;
-	}
-	
-	public void setMessage(String message) {
-		this.message=message;
-	}
-
-	
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate=createdDate;
-	}
-	
-	public void setStatus(Status status) {
-		this.status=status.getCode();
+	@Override
+	public String toString() {
+		return "Comment [id=" + commentId + ", message=" + message + ", createdDate=" + createdDate +", status=" + status +"]";
 	}
 }

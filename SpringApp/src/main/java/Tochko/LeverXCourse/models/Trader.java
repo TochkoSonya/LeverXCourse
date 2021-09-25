@@ -14,7 +14,6 @@ public class Trader {
 	private String title;
 	private String description;
 
-
 	@ManyToOne(optional = false,
 			fetch = FetchType.EAGER)
 	@JoinColumn(name="userId", nullable = false)
@@ -30,14 +29,12 @@ public class Trader {
 				inverseJoinColumns = @JoinColumn(name="gameId"))
 	private Set<Game> traderGames;
 
-
 	public Trader() { }
 
 	public Trader(String title, String description) {
 		this.title=title;
 		this.description=description;
 	}
-
 
 	public Set<Comment> getComments() {
 		return comments;
@@ -50,14 +47,15 @@ public class Trader {
 	public User getUser() {
 		return user;
 	}
+
 	public void setUser(User user) {
 	    this.user=user;
     }
 
-
 	public int getTraderId() {
 		return traderId;
 	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -72,5 +70,10 @@ public class Trader {
 	
 	public void setDescription(String description) {
 		this.description=description;
+	}
+
+	@Override
+	public String toString() {
+		return "Trader [ traderId= "+ traderId +" title= "+ title +" description= "+ description +" ]";
 	}
 }

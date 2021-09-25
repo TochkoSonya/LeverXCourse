@@ -21,7 +21,6 @@ public class User {
 	private String role;
 	private String status;
 
-
 	@OneToMany(	mappedBy = "user",
 			cascade = CascadeType.ALL)
 	private Set<Trader> traders;
@@ -30,9 +29,7 @@ public class User {
 		return traders;
 	}
 
-	public User() {
-		
-	}
+	public User() { }
 	
 	public User(String firstName, String lastName, 
 			int password, String email, Date createdDate,
@@ -77,7 +74,6 @@ public class User {
 	public String getStatus() {
 		return status;
 	}
-
 	
 	public void setFirstName(String firstName) {
 		this.firstName=firstName;
