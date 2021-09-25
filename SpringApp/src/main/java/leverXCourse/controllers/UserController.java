@@ -14,9 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/")
 public class UserController {
 
     @Autowired
@@ -28,7 +27,7 @@ public class UserController {
     @Autowired
     private CommentService commentService;
 
-    @RequestMapping(value="/{userId}", method=RequestMethod.GET)
+    @RequestMapping(value="/users", method=RequestMethod.GET)
     public String listUsers(@PathVariable("userId") int userId, Model model) {
         model.addAttribute("trader", traderService.listTraderByUserId(userId).get(0));
         model.addAttribute("listComment", commentService.findByTrader(traderService.listTraderByUserId(userId).get(0))) ;
@@ -40,7 +39,7 @@ public class UserController {
         return "createUser-view";
     }
 
-    @RequestMapping(value = "/registration", method=RequestMethod.POST)
+    @RequestMapping(value = "/users", method=RequestMethod.POST)
     public String addUser(@RequestParam("title") String title, @RequestParam("description") String description,
                           @RequestParam("password") String password, User user) {
         user.setRole(Role.TRADER);

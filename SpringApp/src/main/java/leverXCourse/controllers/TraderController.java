@@ -11,7 +11,7 @@ import java.util.Date;
 
 
 @Controller
-@RequestMapping("/trader")
+@RequestMapping("/")
 public class TraderController {
 
     @Autowired
@@ -28,7 +28,7 @@ public class TraderController {
         return "createTrader-view";
     }
 
-    @RequestMapping(value = "/registration", method=RequestMethod.POST)
+    @RequestMapping(value = "/traders", method=RequestMethod.POST)
     public String addTrader(@RequestParam("title") String title, @RequestParam("description") String description,
                             @RequestParam("message") String message, Trader trader) {
 
@@ -47,7 +47,7 @@ public class TraderController {
         return "redirect:/";
     }
 
-    @RequestMapping(value="updateStatus/{traderId}", method=RequestMethod.POST)
+    @RequestMapping(value="/traders/{traderId}", method=RequestMethod.PUT)
     public String updateTraderStatus(@PathVariable("traderId") int traderId, @RequestParam("traderStatus") String traderStatus) {
        Status status =Status.ACTIVE.getCode().equals(traderStatus) ? Status.ACTIVE : Status.INACTIVE;
        Trader trader= traderService.get(traderId);
@@ -56,12 +56,12 @@ public class TraderController {
         return "redirect:/admin";
     }
 
-    @RequestMapping(value="delete/{traderId}", method = RequestMethod.GET)
+    @RequestMapping(value="/traders/{traderId}", method = RequestMethod.DELETE)
     public String deleteTrader(@PathVariable("traderId") int traderId) {
         traderService.delete(traderId);
         return "redirect:/admin";
     }
-    @RequestMapping(value="update/{traderId}", method = RequestMethod.POST)
+    @RequestMapping(value="/traders/{traderId}", method = RequestMethod.PUT)
     public String updateTrader(@PathVariable("traderId") int traderId, @RequestParam("title") String title,
                                @RequestParam("description") String description, @RequestParam("firstName") String firstName,
                                @RequestParam("lastName") String lastName, @RequestParam("email") String email) {

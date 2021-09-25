@@ -48,7 +48,7 @@ public class MainController {
             return "redirect:/admin";
         }
         if(user.getRole().equals(Role.TRADER.getCode())){
-            String path="redirect:/user/"+user.getUserId();
+            String path="redirect:/users/"+user.getUserId();
             return path;
         }
         else {

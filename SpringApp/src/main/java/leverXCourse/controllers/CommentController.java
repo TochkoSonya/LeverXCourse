@@ -15,7 +15,7 @@ import java.util.Date;
 
 
 @Controller
-@RequestMapping("/comment")
+@RequestMapping("/")
 public class CommentController {
 
     @Autowired
@@ -24,19 +24,19 @@ public class CommentController {
     @Autowired
     private TraderService traderService;
 
-    @RequestMapping("/list")
+    @RequestMapping(value="/traders/{traderId}/comments", method= RequestMethod.GET)
     public String listComments(Model model) {
         model.addAttribute("listComment", commentService.listAll());
         return "comment-view";
     }
 
-    @RequestMapping(value="/{traderId}/comments", method= RequestMethod.GET)
+    @RequestMapping(value="/traders/{traderId}/comments", method= RequestMethod.GET)
     public String listCommentsByTraderId(@PathVariable("traderId") int traderId, Model model) {
         model.addAttribute("listComments", commentService.findCommentsWithActiveStatusByTrader(traderService.get(traderId)));
         return "comment-view";
     }
 
-    @RequestMapping(value="/{traderId}/comments", method= RequestMethod.POST)
+    @RequestMapping(value="/traders/{traderId}/comments", method= RequestMethod.POST)
     public String createComment(@PathVariable("traderId") int traderId, @RequestParam("message") String message, Model model, Comment comment) {
        comment.setMessage(message);
        comment.setTrader(traderService.get(traderId));
@@ -46,14 +46,14 @@ public class CommentController {
         return "redirect:/";
     }
 
-    @RequestMapping(value="delete/{commentId}", method=RequestMethod.GET)
+    @RequestMapping(value="/traders/{traderId}/comments/{commentId}", method=RequestMethod.DELETE)
     public String deleteComment(@PathVariable("commentId") int commentId) {
         commentService.delete(commentId);
         return "redirect:/admin";
     }
 
 
-    @RequestMapping(value="update/{commentId}", method=RequestMethod.POST)
+    @RequestMapping(value="/traders/{traderId}/comments/{commentId}", method=RequestMethod.PUT)
     public String updateCommentStatus(@PathVariable("commentId") int commentId, @RequestParam("commentStatus") String commentStatus) {
         Status status =Status.ACTIVE.getCode().equals(commentStatus) ? Status.ACTIVE : Status.INACTIVE;
         Comment comment=commentService.get(commentId);
