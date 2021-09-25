@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 @Transactional
 @Service
-public class TraderService {
+public class TraderService implements CommonService<Trader>{
 
     @Autowired
     private TraderRepository traderRepository;
@@ -21,7 +21,7 @@ public class TraderService {
         return traderRepository.findAll();
     }
 
-    public Trader get(int id) {
+    public Trader get(Integer id) {
         return traderRepository.findOne(id);
     }
 

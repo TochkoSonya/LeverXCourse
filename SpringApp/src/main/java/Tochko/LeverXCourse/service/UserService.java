@@ -8,7 +8,7 @@ import java.util.List;
 
 @Transactional
 @Service
-public class UserService {
+public class UserService implements CommonService<User>{
 
     @Autowired
     private UserRepository userRepository;
@@ -21,7 +21,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User get(int id) {
+    public User get(Integer id) {
         return userRepository.findOne(id);
     }
 

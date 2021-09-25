@@ -9,7 +9,7 @@ import java.util.List;
 
 @Transactional
 @Service
-public class CommentService {
+public class CommentService implements CommonService<Comment>{
 
     @Autowired
     private CommentRepository commentRepository;
@@ -18,7 +18,7 @@ public class CommentService {
         commentRepository.save(comment);
     }
 
-    public Comment get(int commentId) { return commentRepository.findOne(commentId);}
+    public Comment get(Integer commentId) { return commentRepository.findOne(commentId);}
 
     public void delete(int id) {commentRepository.delete(id);}
 
