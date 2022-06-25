@@ -17,5 +17,4 @@ public interface TraderRepository extends JpaRepository<Trader, Integer>{
 
     @Query("select t from Trader t inner join t.user where t.user.userId=?1")
     List<Trader> findTraderByUserId(int userId);
-
 }

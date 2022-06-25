@@ -1,38 +1,24 @@
 package leverXCourse.service;
 
 import leverXCourse.models.Comment;
+import leverXCourse.models.Status;
 import leverXCourse.models.Trader;
-import leverXCourse.repository.CommentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
-@Transactional
-@Service
-public class CommentService implements CommonService<Comment>{
+public interface CommentService {
 
-    @Autowired
-    private CommentRepository commentRepository;
+    void save(Comment comment, int traderId, String message);
 
-    public void save(Comment comment) {
-        commentRepository.save(comment);
-    }
+    Comment get(Integer commentId);
 
-    public Comment get(Integer commentId) { return commentRepository.findOne(commentId);}
+    void delete(int id);
 
-    public void delete(int id) {commentRepository.delete(id);}
+    List<Comment> listAll();
 
-    public List<Comment> listAll() {
-        return commentRepository.findAll();
-    }
+    List<Comment> findByTrader(Trader trader);
 
-    public List<Comment> findByTrader(Trader trader) { return commentRepository.findByTrader(trader); }
+    List<Comment> findCommentsWithActiveStatusByTrader(Trader trader);
 
-    public List<Comment> findCommentsWithActiveStatusByTrader(Trader trader) {
-        return commentRepository.findCommentsWithActiveStatusByTrader(trader);
-    }
+    void updateStatus(int commentId, Status status);
 }
-
-
-

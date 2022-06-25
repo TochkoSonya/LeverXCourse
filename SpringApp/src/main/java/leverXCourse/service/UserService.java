@@ -1,32 +1,18 @@
 package leverXCourse.service;
 
 import leverXCourse.models.User;
-import leverXCourse.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
-@Transactional
-@Service
-public class UserService implements CommonService<User>{
+public interface UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    void save(User user);
 
-    public void save(User user) {
-        userRepository.save(user);
-    }
+    void save(User user, String password);
 
-    public List<User> listAll() {
-        return userRepository.findAll();
-    }
+    List<User> listAll();
 
-    public User get(Integer id) {
-        return userRepository.findOne(id);
-    }
+    User get(Integer id);
 
-    public User findByEmailAndPassword(String email, int password) {
-        return userRepository.findByEmailAndPassword(email, password); }
-
+    User findByEmailAndPassword(String email, int password);
 }

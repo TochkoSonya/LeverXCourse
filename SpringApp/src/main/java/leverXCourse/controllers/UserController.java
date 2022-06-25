@@ -1,4 +1,5 @@
 package leverXCourse.controllers;
+
 import leverXCourse.models.Role;
 import leverXCourse.models.Status;
 import leverXCourse.models.Trader;
@@ -9,51 +10,47 @@ import leverXCourse.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
-//TODO change all mappings (user controller)
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+    private final TraderService traderService;
+    private final CommentService commentService;
 
     @Autowired
-    private TraderService traderService;
+    public UserController(UserService userService,
+                          TraderService traderService,
+                          CommentService commentService) {
+        this.userService = userService;
+        this.traderService = traderService;
+        this.commentService = commentService;
+    }
 
-    @Autowired
-    private CommentService commentService;
-
-    @RequestMapping(value="/users", method=RequestMethod.GET)
+    @RequestMapping(value = "/users", method = RequestMethod.GET)
     public String listUsers(@PathVariable("userId") int userId, Model model) {
         model.addAttribute("trader", traderService.listTraderByUserId(userId).get(0));
-        model.addAttribute("listComment", commentService.findByTrader(traderService.listTraderByUserId(userId).get(0))) ;
+        model.addAttribute("listComment", commentService.findByTrader(traderService.listTraderByUserId(userId).get(0)));
         return "user-view";
     }
 
-    @RequestMapping(value = "/registration", method=RequestMethod.GET)
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String addUserForm(Model model) {
         return "createUser-view";
     }
 
-    @RequestMapping(value = "/users", method=RequestMethod.POST)
-    public String addUser(@RequestParam("title") String title, @RequestParam("description") String description,
-                          @RequestParam("password") String password, User user) {
-        user.setRole(Role.TRADER);
-        user.setStatus(Status.PROCESSING);
-        user.setPassword(password.hashCode());
-        userService.save(user);
-        Trader newTrader=new Trader();
-        newTrader.setTitle(title);
-        newTrader.setDescription(description);
+    @RequestMapping(value = "/users", method = RequestMethod.POST)
+    public String addUser(@RequestParam("title") String title,
+                          @RequestParam("description") String description,
+                          @RequestParam("password") String password,
+                          @RequestBody User user) {
+        userService.save(user, password);
+
+        Trader newTrader = new Trader();
         newTrader.setUser(user);
-        traderService.save(newTrader);
+        traderService.save(newTrader, title, description);
         return "redirect:/";
     }
-
 }

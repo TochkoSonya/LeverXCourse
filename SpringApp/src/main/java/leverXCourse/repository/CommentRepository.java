@@ -15,6 +15,4 @@ public interface CommentRepository extends JpaRepository<Comment,Integer>  {
 
     @Query("select c from Comment c inner join c.trader where c.status='active' and c.trader=?1")
     List<Comment> findCommentsWithActiveStatusByTrader(Trader trader);
-
-
 }

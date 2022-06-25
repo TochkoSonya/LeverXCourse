@@ -12,22 +12,20 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Configuration
-@ComponentScan(basePackages={"leverXCourse"})
-@PropertySource(value = { "classpath:application.properties" })
+@ComponentScan(basePackages = {"leverXCourse"})
+@PropertySource(value = {"classpath:application.properties"})
 @EnableScheduling
 @EnableAspectJAutoProxy
 @EnableCaching
-public class AppConfig
-{
+public class AppConfig {
+
     @Bean
-    public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer()
-    {
+    public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
     }
 
     @Bean
-    public CacheManager cacheManager()
-    {
+    public CacheManager cacheManager() {
         return new ConcurrentMapCacheManager();
     }
 }

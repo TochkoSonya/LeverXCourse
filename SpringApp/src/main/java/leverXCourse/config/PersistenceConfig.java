@@ -3,6 +3,7 @@ package leverXCourse.config;
 import java.util.Properties;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
+
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -20,21 +21,20 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages= "leverXCourse.repository")
+@EnableJpaRepositories(basePackages = "leverXCourse.repository")
 public class PersistenceConfig {
+
     @Autowired
     private Environment env;
 
     @Bean
-    public PlatformTransactionManager transactionManager()
-    {
+    public PlatformTransactionManager transactionManager() {
         EntityManagerFactory factory = entityManagerFactory().getObject();
         return new JpaTransactionManager(factory);
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory()
-    {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
@@ -55,14 +55,12 @@ public class PersistenceConfig {
     }
 
     @Bean
-    public HibernateExceptionTranslator hibernateExceptionTranslator()
-    {
+    public HibernateExceptionTranslator hibernateExceptionTranslator() {
         return new HibernateExceptionTranslator();
     }
 
     @Bean
-    public DataSource dataSource()
-    {
+    public DataSource dataSource() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
         dataSource.setUrl(env.getProperty("jdbc.url"));
@@ -72,8 +70,7 @@ public class PersistenceConfig {
     }
 
     @Bean
-    public DataSourceInitializer dataSourceInitializer(DataSource dataSource)
-    {
+    public DataSourceInitializer dataSourceInitializer(DataSource dataSource) {
         DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
         dataSourceInitializer.setDataSource(dataSource);
         return dataSourceInitializer;
